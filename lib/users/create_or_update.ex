@@ -6,10 +6,8 @@ defmodule Flightex.Users.CreateOrUpdate do
   alias Flightex.Users.User
 
   def call(%{name: name, email: email, cpf: cpf}) do
-    id = UUID.uuid4()
-
-    id
-    |> User.build(name, email, cpf)
+    name
+    |> User.build(email, cpf)
     |> save_user()
   end
 

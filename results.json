@@ -1,0 +1,22 @@
+{
+  "excluded": [],
+  "failed": [],
+  "invalid": [],
+  "passed": [
+    {
+      "describe": "call/1",
+      "file": "/home/bruno/Projects/Aprendendo_Elixir/ignite/desafios/ignite-elixir-t3-chapter2-reservas-de-voos/test/users/create_or_update_test.exs",
+      "line": 35,
+      "module": "Elixir.Flightex.Users.CreateOrUpdateTest",
+      "test": "test call/1 when cpf is a integer, returns an error"
+    },
+    {
+      "describe": "call/1",
+      "file": "/home/bruno/Projects/Aprendendo_Elixir/ignite/desafios/ignite-elixir-t3-chapter2-reservas-de-voos/test/users/create_or_update_test.exs",
+      "line": 14,
+      "module": "Elixir.Flightex.Users.CreateOrUpdateTest",
+      "test": "test call/1 when all params are valid, return a tuple"
+    }
+  ],
+  "skiped": []
+}

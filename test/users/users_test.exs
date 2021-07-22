@@ -17,6 +17,8 @@ defmodule Flightex.Users.UserTest do
       expected_response = build(:users, id: response.id)
 
       assert response == expected_response
+
+      assert {:ok, _} = UUID.info(response.id)
     end
 
     test "when cpf is a integer" do

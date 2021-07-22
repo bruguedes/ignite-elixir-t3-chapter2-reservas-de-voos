@@ -6,15 +6,15 @@ defmodule Flightex.Users.User do
   @enforce_keys @keys
   defstruct @keys
 
-  def build(id, name, email, cpf) when is_binary(cpf) do
+  def build(name, email, cpf) when is_binary(cpf) do
     {:ok,
      %__MODULE__{
-       id: id,
+       id: UUID.uuid4(),
        name: name,
        email: email,
        cpf: cpf
      }}
   end
 
-  def build(_name, _email, _cpf, _id), do: {:error, "Invalid parameters"}
+  def build(_name, _email, _cpf), do: {:error, "Cpf must be a String"}
 end
