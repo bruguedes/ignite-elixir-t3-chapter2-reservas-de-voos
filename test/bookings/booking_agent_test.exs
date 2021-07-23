@@ -1,5 +1,5 @@
 defmodule Flightex.Bookings.AgentTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
 
   import Flightex.Factory
 

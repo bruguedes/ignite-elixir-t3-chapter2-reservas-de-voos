@@ -11,9 +11,13 @@ defmodule Flightex.Users.Agent do
     Agent.start_link(fn -> %{} end, name: __MODULE__)
   end
 
+  def start_link, do: {:error, "A map must be passed as parameters"}
+
   def save(%User{} = user) do
     Agent.update(__MODULE__, &update_state(&1, user))
   end
+
+  def save(_), do: {:error, "Save error"}
 
   def get(cpf), do: Agent.get(__MODULE__, &get_user(&1, cpf))
 
