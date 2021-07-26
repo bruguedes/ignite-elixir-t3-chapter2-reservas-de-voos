@@ -38,24 +38,16 @@ defmodule Flightex.Bookings.Report do
   end
 
   defp filter_for_date(list, from_date, to_date) do
+    from_date = NaiveDateTime.to_date(from_date)
+    to_date = NaiveDateTime.to_date(to_date)
+    range = Date.range(from_date, to_date)
+
     Enum.filter(list, fn %Booking{complete_date: date} = booking ->
-      with {:ok, _} <- range_date(from_date, date),
-           {:ok, _} <- range_date(date, to_date) do
-        booking
-      end
+      parse_date = NaiveDateTime.to_date(date)
+
+      is_valid_date? = Enum.member?(range, parse_date)
+
+      if is_valid_date?, do: booking
     end)
-  end
-
-  def range_date(date1, date2) do
-    case NaiveDateTime.compare(date1, date2) do
-      :lt ->
-        {:ok, true}
-
-      :eq ->
-        {:ok, true}
-
-      :gt ->
-        nil
-    end
   end
 end
